@@ -2,8 +2,10 @@
 
    require 'functions.php'; 
 
-   $hero_title = ["Home", 'Contact'];
+   $hero_titles = ["Home", "Contact"];
+   $hero_titles = do_filter('hero_section', $hero_titles);
 
+   
 ?>
 
 
@@ -25,13 +27,19 @@
         <h1>This is a plugin website</h1>
         <div style="display: flex;">
             <div style="flex: 4; background-color: #eee;">
-                <div style="padding: 10px;">Hero Section <?php load_plugin('hero_section'); ?></div>
-                <img src="images/tshart.avif" alt="" style="max-width: 100%; padding: 10px;">
+                <div style="padding: 10px;">
+
+                    <?php foreach ($hero_titles as $title):?>
+                       <a href="" style="color: red"><?=$title?></a> |
+                       <?php endforeach ?>
+                       
+                </div>
+                <img src="https://www.velocitymicro.com/img/PC/sx3/fullset.jpg" alt="" style="max-width: 100%; padding: 10px;">
             </div>
             <div style="flex: 1; background-color: #ddd;">
                 <img src="images/bart.jpg" alt="" style="max-width: 100%;">
                 <img src="images/flowar.webp" alt="" style="max-width: 100%;">
-                <?php load_plugin('images_section'); ?>
+                <?php do_action('images_section'); ?>
                 <img src="images/free-nature-images.jpg" alt="" style="max-width: 100%;">
                 <img src="images/flowar.webp" alt="" style="max-width: 100%;">
             </div>
