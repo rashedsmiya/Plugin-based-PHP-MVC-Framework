@@ -1,11 +1,21 @@
 <?php 
-    
-    function load_plugin($func_name){
-
-       if(file_exists('plugins/plugin.php')){   
-
-       require 'plugins/plugin.php';
-       $$func_name();
+   
+    $ACTIONES = [];
+    function add_action($action_name, $func){
+    global $ACTIONES;
+    $ACTIONES[$action_name] = $func;
     }
 
-}
+    function do_action($action_name) {
+        global $ACTIONES;
+        $ACTIONES[$action_name]();
+    }
+
+    function load_plugins()
+    {
+        $folder = 'plugins/';
+        $files = glob($folder . "*.php");
+        foreach ($files as $file) {
+            require_once $file;
+        }
+    }
