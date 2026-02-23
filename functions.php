@@ -11,11 +11,16 @@
         $ACTIONES[$action_name]();
     }
 
-    function load_plugins()
+    function load_plugins($func_name)
     {
         $folder = 'plugins/';
         $files = glob($folder . "*.php");
-        foreach ($files as $file) {
-            require_once $file;
+
+
+        if(is_array($files)){
+            foreach($files as $file)
+            {
+                require $file;
+            }
         }
     }

@@ -2,6 +2,8 @@
 
    require 'functions.php'; 
 
+   $hero_title = ["Home", 'Contact'];
+
 ?>
 
 
@@ -16,8 +18,6 @@
     <style type="text/css">
         body{
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
         }
     </style> 
 
