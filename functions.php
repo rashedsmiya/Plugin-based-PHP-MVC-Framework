@@ -8,8 +8,10 @@
 
     function do_action($action_name) {
         global $ACTIONES;
-
-        $ACTIONES[$action_name]();
+        
+        if(!empty($ACTIONES[$action_name])){
+            $ACTIONES[$action_name]();
+        }
     }
 
     function add_filter($filter_name, $func){
@@ -19,7 +21,11 @@
 
     function do_filter($filter_name, $data) {
         global $ACTIONES;
-       return  $ACTIONES[$filter_name]($data);
+        
+        if(!empty($ACTIONES[$filter_name])){
+            return $ACTIONES[$filter_name]($data);
+        }
+        return $data;
     }
 
 

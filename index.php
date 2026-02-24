@@ -3,7 +3,7 @@
    require 'functions.php'; 
 
    $hero_titles = ["Home", "Contact"];
-   $hero_titles = do_filter('hero_section', $hero_titles);
+   $hero_titles = do_filter('hero_titles', $hero_titles);
 
    
 ?>
@@ -28,11 +28,9 @@
         <div style="display: flex;">
             <div style="flex: 4; background-color: #eee;">
                 <div style="padding: 10px;">
-
                     <?php foreach ($hero_titles as $title):?>
                        <a href="" style="color: red"><?=$title?></a> |
                        <?php endforeach ?>
-                       
                 </div>
                 <img src="https://www.velocitymicro.com/img/PC/sx3/fullset.jpg" alt="" style="max-width: 100%; padding: 10px;">
             </div>
